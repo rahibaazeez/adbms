@@ -1,1 +1,57 @@
+1. Display all employee names and their department names in department 
 
+name order.
+
+ mysql> SELECT e.ename, d.deptname
+
+ FROM Employee e
+
+ JOIN Department d ON e.deptno = d.deptno
+
+ ORDER BY d.deptname;
+
++--------+----------+
+
+| ename | deptname |
+
++--------+----------+
+
+| Smith | Research |
+
+| Jones | Research |
+
+| Allen | Sales |
+
+| Ward | Sales |
+
+| Martin | Sales |
+
++--------+----------+
+
+5 rows in set (0.00 sec)
+
+2. Display the name, location, and department name of all employees whose 
+
+salary is more than 1500.
+
+ mysql> SELECT e.ename, d.location, d.deptname
+
+ FROM Employee e
+
+ JOIN Department d ON e.deptno = d.deptno
+
+ WHERE e.salary > 1500;
+
++-------+----------+----------+
+
+| ename | location | deptname |
+
++-------+----------+----------+
+
+| Allen | US | Sales |
+
+| Jones | US | Research |
+
++-------+----------+----------+
+
+2 rows in set (0.00 sec)
