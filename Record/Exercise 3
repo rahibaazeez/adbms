@@ -55,3 +55,62 @@ salary is more than 1500.
 +-------+----------+----------+
 
 2 rows in set (0.00 sec)
+3.Produce a list showing employee‟s salary grade.
+
+ mysql> SELECT e.ename, e.salary, s.grade
+
+ FROM Employee e
+
+ JOIN SalaryGrade s ON e.salary BETWEEN s.lowsalary AND s.highsalary;
+
++--------+--------+-------+
+
+| ename | salary | grade |
+
++--------+--------+-------+
+
+| Smith | 800 | 1 |
+
+| Ward | 1250 | 2 |
+
+| Martin | 1250 | 2 |
+
+| Allen | 1600 | 3 |
+
+| Jones | 2975 | 4 |
+
++--------+--------+-------+
+
+5 rows in set (0.00 sec)
+
+4. List employees in grade 3.
+
+ mysql> SELECT e.*
+
+ FROM Employee e
+
+ JOIN SalaryGrade s ON e.salary BETWEEN s.lowsalary AND s.highsalary
+
+ WHERE s.grade = 3;
+
++-------+-------+----------+-----------+------------+--------+-----------+--------+
+
+| empno | ename | JOB | managerid | hiredate | salary | commision | deptno |
+
++-------+-------+----------+-----------+------------+--------+-----------+--------+
+
+| 1001 | Allen | Salesman | 1005 | 1981-06-01 | 1600 | 300 | 30 |
+
++-------+-------+----------+-----------+------------+--------+-----------+--------+
+
+1 row in set (0.00 sec)
+
+5. Show all employees in US.
+
+mysql> SELECT e.*
+
+ FROM Employee e
+
+ JOIN Department d ON e.deptno = d.deptno
+
+ WHERE d.location = 'US';
