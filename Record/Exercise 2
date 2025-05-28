@@ -421,3 +421,62 @@ Employee WHERE ename IN ('SMITH', 'ALLEN') order by ename desc;
 +------------------+
 
 2 rows in set (0.00 sec)
+18. Find the minimum, maximum, and average salaries of all employees.
+
+mysql> SELECT MIN(salary), MAX(salary), AVG(salary) FROM Employee;
+
++-------------+-------------+-------------+
+
+| MIN(salary) | MAX(salary) | AVG(salary) |
+
++-------------+-------------+-------------+
+
+| 800 | 2975 | 1575.0000 |
+
++-------------+-------------+-------------+
+
+19. List the minimum and maximum salary for each job.
+
+ mysql> SELECT job, MIN(salary), MAX(salary) FROM Employee GROUP BY job;
+
++----------+-------------+-------------+
+
+| job | MIN(salary) | MAX(salary) |
+
++----------+-------------+-------------+
+
+| Salesman | 1250 | 1600 |
+
+| Clerk | 800 | 800 |
+
+| Manager | 2975 | 2975 |
+
++----------+-------------+-------------+
+
+3 rows in set (0.00 sec)
+
+20. Find how many managers are there without listing them.
+
+ mysql> SELECT COUNT(*) FROM Employee WHERE job = 'Manager';
+
++----------+
+
+| COUNT(*) |
+
++----------+
+
+| 1 |
+
++----------+
+
+1 row in set (0.00 sec)
+
+21.Find the average salary and average total remuneration for each job.
+
+ mysql> SELECT job, AVG(salary) AS avg_salary,
+
+ AVG(salary + IFNULL(commision, 0)) AS avg_total
+
+ FROM Employee
+
+ GROUP BY job;
