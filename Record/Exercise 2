@@ -533,3 +533,14 @@ mysql> SELECT MIN(salary), MAX(salary), AVG(salary) FROM Employee;
 +--------+----------+-----------+
 
 1 row in set (0.00 sec)
+24. Check whether all employee numbers are unique.
+
+ mysql> SELECT empno, COUNT(*)
+
+ FROM Employee
+
+ GROUP BY empno
+
+ HAVING COUNT(*) > 1; 
+
+Empty set (0.00 sec)
