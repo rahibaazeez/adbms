@@ -114,3 +114,56 @@ mysql> SELECT e.*
  JOIN Department d ON e.deptno = d.deptno
 
  WHERE d.location = 'US';
++-------+--------+----------+-----------+------------+--------+-----------+--------+
+
+| empno | ename | JOB | managerid | hiredate | salary | commision | deptno |
+
++-------+--------+----------+-----------+------------+--------+-----------+--------+
+
+| 1001 | Allen | Salesman | 1005 | 1981-06-01 | 1600 | 300 | 30 |
+
+| 1002 | Smith | Clerk | 1006 | 1987-12-09 | 800 | NULL | 20 |
+
+| 1003 | Ward | Salesman | 1005 | 1981-02-22 | 1250 | 500 | 30 |
+
+| 1004 | Jones | Manager | 1007 | 1981-04-02 | 2975 | NULL | 20 |
+
+| 1005 | Martin | Salesman | 1006 | 1981-09-28 | 1250 | 1400 | 30 |
+
++-------+--------+----------+-----------+------------+--------+-----------+--------+
+
+5 rows in set (0.00 sec)
+
+6.List employee name, job, salary, grade and department name for all except 
+
+clerk. Sort on salary descending order..
+
+mysql> SELECT e.ename, e.job, e.salary, s.grade, d.deptname
+
+ FROM Employee e
+
+ JOIN Department d ON e.deptno = d.deptno
+
+ JOIN SalaryGrade s ON e.salary BETWEEN s.lowsalary AND s.highsalary
+
+ WHERE e.job != 'Clerk'
+
+ ORDER BY e.salary DESC;
+
++--------+----------+--------+-------+----------+
+
+| ename | job | salary | grade | deptname |
+
++--------+----------+--------+-------+----------+
+
+| Jones | Manager | 2975 | 4 | Research |
+
+| Allen | Salesman | 1600 | 3 | Sales |
+
+| Ward | Salesman | 1250 | 2 | Sales |
+
+| Martin | Salesman | 1250 | 2 | Sales |
+
++--------+----------+--------+-------+----------+
+
+4 rows in set (0.00 sec)
