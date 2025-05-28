@@ -1,1 +1,59 @@
+1.Create a database;
 
+mysql>create database employee;
+
+ Query OK, 1 row affected (0.01 sec)
+
+2.Create table Employee with the following filed – empno int primary 
+
+key,ename varchar(30),JOB varchar(10),managerid int,hiredate date,salary 
+
+int,commision int,deptno int
+
+mysql> CREATE TABLE Employee (
+
+ empno INT PRIMARY KEY,
+
+ ename VARCHAR(30),
+
+ JOB VARCHAR(10),
+
+ managerid INT,
+
+ hiredate DATE,
+
+ salary INT,
+
+ commision INT,
+
+ deptno INT );
+
+Query OK, 0 rows affected (0.04 sec) 
+
+3.describe schema.
+
+ mysql>DESCRIBE Employee;
+
++-----------+-------------+------+-----+---------+-------+
+
+| Field | Type | Null | Key | Default | Extra |
+
++-----------+-------------+------+-----+---------+-------+
+
+| empno | int | NO | PRI | NULL | |
+
+| ename | varchar(30) | YES | | NULL | |
+
+| JOB | varchar(10) | YES | | NULL | |
+
+| managerid | int | YES | | NULL | | 
+
+| hiredate | date | YES | | NULL | |
+
+| salary | int | YES | | NULL | |
+
+| commision | int | YES | | NULL | |
+
+| deptno | int | YES | | NULL | |
+
++-----------+-------------+------+-----+---------+-------+
