@@ -167,3 +167,24 @@ mysql> SELECT e.ename, e.job, e.salary, s.grade, d.deptname
 +--------+----------+--------+-------+----------+
 
 4 rows in set (0.00 sec)
+7. List the following details for all employees who earn 36000 a year or who 
+
+are clerk.
+
+mysql> SELECT ename, job, salary
+
+ FROM Employee
+
+ WHERE salary * 12 = 36000 OR job = 'Clerk';
+
++-------+-------+--------+
+
+| ename | job | salary |
+
++-------+-------+--------+
+
+| Smith | Clerk | 800 |
+
++-------+-------+--------+
+
+1 row in set (0.00 sec)
