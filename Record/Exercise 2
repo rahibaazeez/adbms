@@ -104,3 +104,68 @@ mysql> SELECT * FROM Employee;
 +--------+------------+----------+
 
 5 rows in set (0.00 sec)
+4.Select all information from table salarygrade.
+
+mysql> SELECT * FROM SalaryGrade;
+
++-------+-----------+------------+
+
+| grade | lowsalary | highsalary |
+
++-------+-----------+------------+
+
+| 1 | 700 | 1200 |
+
+| 2 | 1201 | 1400 |
+
+| 3 | 1401 | 2000 |
+
+| 4 | 2001 | 3000 |
+
+| 5 | 3001 | 9999 |
+
++-------+-----------+------------+
+
+5 rows in set (0.00 sec) 
+
+5.Select empno,ename form table employee. 
+
+mysql> SELECT empno, ename FROM Employee;
+
++-------+--------+
+
+| empno | ename |
+
++-------+--------+
+
+| 1001 | Allen |
+
+| 1002 | Smith |
+
+| 1003 | Ward |
+
+| 1004 | Jones |
+
+| 1005 | Martin |
+
++-------+--------+
+
+5 rows in set (0.00 sec)
+
+6.List all employees having a salary range between 1000 and 2000
+
+ mysql> SELECT * FROM Employee WHERE salary BETWEEN 1000 AND 2000;
+
++-------+--------+----------+-----------+------------+--------+-----------+--------+
+
+| empno | ename | JOB | managerid | hiredate | salary | commision | deptno |
+
++-------+--------+----------+-----------+------------+--------+-----------+--------+
+
+| 1001 | Allen | Salesman | 1005 | 1981-06-01 | 1600 | 300 | 30 |
+
+| 1003 | Ward | Salesman | 1005 | 1981-02-22 | 1250 | 500 | 30 |
+
+| 1005 | Martin | Salesman | 1006 | 1981-09-28 | 1250 | 1400 | 30 |
+
++-------+--------+----------+-----------+------------+--------+-----------+--------
