@@ -234,3 +234,70 @@ mysql> SELECT ename, job FROM Employee WHERE job='Clerk' AND deptno=20;
 mysql> SELECT ename FROM Employee WHERE ename LIKE '%TH%' OR ename 
 
 LIKE '%LL%';
++-------+
+
+| ename |
+
++-------+
+
+| Allen |
+
+| Smith |
+
++-------+
+
+2 rows in set (0.00 sec)
+
+11.List name,job,and salary of all employees who have a manager.
+
+mysql>SELECT ename, job, salary FROM Employee WHERE managerid IS NOT 
+
+NULL;
+
++--------+----------+--------+
+
+| ename | job | salary |
+
++--------+----------+--------+
+
+| Allen | Salesman | 1600 |
+
+| Smith | Clerk | 800 |
+
+| Ward | Salesman | 1250 |
+
+| Jones | Manager | 2975 |
+
+| Martin | Salesman | 1250 |
+
++--------+----------+--------+
+
+5 rows in set (0.00 sec) 
+
+12.Dispaly name and annual remuneration for all employees.
+
+mysql> SELECT ename, (salary * 12 + IFNULL(commision,0)) AS 
+
+annual_remuneration FROM Employee;
+
++--------+---------------------+
+
+| ename | annual_remuneration |
+
++--------+---------------------+
+
+| Allen | 19500 |
+
+| Smith | 9600 |
+
+| Ward | 15500 |
+
+| Jones | 35700 |
+
+| Martin | 16400 |
+
++--------+---------------------+
+
+5 rows in set (0.00 sec) 
+
+13.Display all employees hired during 1987.
