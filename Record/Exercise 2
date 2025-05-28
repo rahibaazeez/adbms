@@ -301,3 +301,70 @@ annual_remuneration FROM Employee;
 5 rows in set (0.00 sec) 
 
 13.Display all employees hired during 1987.
+mysql> SELECT * FROM Employee WHERE YEAR(hiredate) = 1987;
+
++-------+-------+-------+-----------+------------+--------+-----------+--------+
+
+| empno | ename | JOB | managerid | hiredate | salary | commision | deptno |
+
++-------+-------+-------+-----------+------------+--------+-----------+--------+
+
+| 1002 | Smith | Clerk | 1006 | 1987-12-09 | 800 | NULL | 20 |
+
++-------+-------+-------+-----------+------------+--------+-----------+--------+
+
+1 row in set (0.00 sec)
+
+14.Display name,job,annual sal,commission of all sales peoples whose
+
+monthly salary greater than commission.The output should be order by salary 
+
+highest first.
+
+ mysql> SELECT ename, job, (salary*12) AS annual_sal, commision
+
+ FROM Employee
+
+ WHERE job='Salesman' AND salary > IFNULL(commision, 0)
+
+ ORDER BY salary DESC;
+
++-------+----------+------------+-----------+
+
+| ename | job | annual_sal | commision |
+
++-------+----------+------------+-----------+
+
+| Allen | Salesman | 19200 | 300 |
+
+| Ward | Salesman | 15000 | 500 |
+
++-------+----------+------------+-----------+
+
+2 rows in set (0.00 sec) 
+
+15.List the employee name and salary increased by 12.5%.Express has a 
+
+whole number 
+
+mysql> SELECT ename, ROUND(salary * 1.125) AS increased_salary FROM 
+
+Employee;
+
++--------+------------------+
+
+| ename | increased_salary |
+
++--------+------------------+
+
+| Allen | 1800 |
+
+| Smith | 900 |
+
+| Ward | 1406 |
+
+| Jones | 3347 |
+
+| Martin | 1406 |
+
++--------+------------------+
