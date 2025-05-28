@@ -480,3 +480,56 @@ mysql> SELECT MIN(salary), MAX(salary), AVG(salary) FROM Employee;
  FROM Employee
 
  GROUP BY job;
++----------+------------+-----------+
+
+| job | avg_salary | avg_total |
+
++----------+------------+-----------+
+
+| Salesman | 1366.6667 | 2100.0000 |
+
+| Clerk | 800.0000 | 800.0000 |
+
+| Manager | 2975.0000 | 2975.0000 |
+
++----------+------------+-----------+
+
+3 rows in set (0.00 sec)
+
+22. Find the difference between highest and lowest salaries.
+
+ mysql> SELECT MAX(salary) - MIN(salary) AS salary_difference FROM Employee;
+
++-------------------+
+
+| salary_difference |
+
++-------------------+
+
+| 2175 |
+
++-------------------+
+
+1 row in set (0.00 sec)
+
+23. Find all departments having more than 3 employees.
+
+ mysql> SELECT deptno,JOB, COUNT(*) as emp_count
+
+ FROM Employee
+
+ GROUP BY deptno
+
+ HAVING COUNT(*) > 2;
+
++--------+----------+-----------+
+
+| deptno | JOB | emp_count |
+
++--------+----------+-----------+
+
+| 30 | Salesman | 3 |
+
++--------+----------+-----------+
+
+1 row in set (0.00 sec)
