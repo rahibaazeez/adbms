@@ -112,3 +112,22 @@ mysql>CREATE TABLE SalaryGrade (
  );
 
 Query OK, 0 rows affected (0.02 sec)
+7.describe schema
+
+ mysql>DESCRIBE SalaryGrade;
+
++------------+------+------+-----+---------+-------+
+
+| Field | Type | Null | Key | Default | Extra |
+
++------------+------+------+-----+---------+-------+
+
+| grade | int | NO | PRI | NULL | |
+
+| lowsalary | int | YES | | NULL | |
+
+| highsalary | int | YES | | NULL | |
+
++------------+------+------+-----+---------+-------+
+
+3 rows in set (0.00 sec)
