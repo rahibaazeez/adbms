@@ -55,3 +55,62 @@
  GROUP BY job
 
  ORDER BY AVG(salary) DESC LIMIT 1;
+---------+
+
+| job |
+
++---------+
+
+| Manager |
+
++---------+
+
+1 row in set (0.00 sec) 
+
+4.Find the departments not having any employees
+
+ mysql> SELECT * FROM Department
+
+ WHERE deptno NOT IN (SELECT DISTINCT deptno FROM Employee);
+
++--------+------------+----------+
+
+| deptno | deptname | location |
+
++--------+------------+----------+
+
+| 10 | Accounting | US |
+
+| 40 | Marketing | US |
+
+| 50 | IT | US |
+
++--------+------------+----------+
+
+3 rows in set (0.00 sec)
+
+5.Display the name and salary of the top three earners in the company
+
+ mysql> SELECT ename, salary
+
+ FROM Employee
+
+ ORDER BY salary DESC
+
+ LIMIT 3;
+
++--------+--------+
+
+| ename | salary |
+
++--------+--------+
+
+| Jones | 2975 |
+
+| Allen | 1600 |
+
+| Martin | 1250 |
+
++--------+--------+
+
+3 rows in set (0.00 sec)
